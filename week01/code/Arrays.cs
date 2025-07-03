@@ -17,6 +17,13 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        // The idea here is to create a new double array with the given length.
+        // To then get all of the numbers in the right sequence we loop over the array and for every index we look at the
+        // current number so if it is mutiples of 5, the first index would be 0 because 0 * 5 is still 0 we have to add
+        // 1 to it every time. So it would be (0 + 1) * 5 = 5, index 1 would be (1 + 1) * 5 = 10, and so on, until
+        // we reach the provided lenght. Each of these values are placed in their index of the array and then the array
+        // returned.
+
         double[] numberArray = new double[length];
         for (var i = 0; i < length; ++i)
         {
@@ -38,6 +45,14 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // The idea here is to get the end range, or the amount, in this case that is given, in the list and save that as a new list.
+        // We do the same thing for the start range of the given list. The difference is in the getRange, on the end we want to start
+        // the lengh minus the amount and grab the ones that match the value of the amount so if it was 3, it would be the last 3
+        // of the list. The start we start at 0 and then grab everything up to the lengh minus the amount so if the total was 10
+        // it would be 7. After this we clear the current data list. We take everything that was in the "right" or end of the list
+        // and put that in the data list, and then add what was in the "left" or start of the list. 
+
         List<int> end = data.GetRange(data.Count - amount, amount);
         List<int> start = data.GetRange(0, data.Count - amount);
         data.Clear();
