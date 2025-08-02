@@ -110,11 +110,15 @@ public static class Recursion
 
         if (remember == null)
             remember = new Dictionary<int, decimal>();
+
         if (remember.TryGetValue(s, out decimal cached))
             return cached;
 
-        decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+        decimal ways = CountWaysToClimb(s - 1, remember)
+                    + CountWaysToClimb(s - 2, remember)
+                    + CountWaysToClimb(s - 3, remember);
         remember[s] = ways;
+
         return ways;
     }
 
