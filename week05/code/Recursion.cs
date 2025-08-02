@@ -108,10 +108,13 @@ public static class Recursion
         if (s == 3)
             return 4;
 
-        // TODO Start Problem 3
+        if (remember == null)
+            remember = new Dictionary<int, decimal>();
+        if (remember.TryGetValue(s, out decimal cached))
+            return cached;
 
-        // Solve using recursion
         decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+        remember[s] = ways;
         return ways;
     }
 
